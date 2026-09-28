@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold-glow: rgba(223, 162, 72, 0.4);
+    --ember-glow: rgba(255, 84, 25, 0.5);
+  }
+
+  body {
+    background-color: #050507;
+    color: #faf8f5;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08080c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2838;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dfa248;
+  }
+}
+
+/* Luxury Utility Classes */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ffe29a 30%, #dfa248 70%, #c2852b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.flame-text-gradient {
+  background: linear-gradient(135deg, #ffd066 0%, #ff7e47 40%, #ff5419 75%, #b82700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  background: rgba(14, 14, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(223, 162, 72, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(20, 19, 28, 0.85);
+  border-color: rgba(223, 162, 72, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(223, 162, 72, 0.1);
+  transform: translateY(-4px);
+}
+
+.gold-glow-border {
+  border: 1px solid rgba(223, 162, 72, 0.25);
+  box-shadow: inset 0 0 20px rgba(223, 162, 72, 0.05), 0 0 25px rgba(223, 162, 72, 0.1);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Custom button shimmer effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transition: all 0.6s ease;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
